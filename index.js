@@ -40,6 +40,10 @@ var handleResponse = (req, res, visitor) => {
   };
 };
 
+app.get(`/healthcheck`, (req, res) => {
+  res.json({});
+});
+
 app.get(`/${config.get('proxy.path')}/:podcast`, (req, res) => {
 
   visitor.event('Podcasts', 'Play', req.params.podcast).send();
