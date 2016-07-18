@@ -1,0 +1,9 @@
+{
+  "ga": {
+    "tracker_id": "UA-40793458-9"
+  },
+  "proxy": {
+    "source": "s3-eu-west-1.amazonaws.com",
+    "path": "devastation-podcast"
+  }
+}

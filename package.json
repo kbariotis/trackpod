@@ -1,0 +1,17 @@
+{
+  "name": "trackpod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node cluster"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.21.0",
+    "express": "4.14.0",
+    "universal-analytics": "0.3.11"
+  }
+}
