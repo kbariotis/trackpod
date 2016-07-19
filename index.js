@@ -17,10 +17,12 @@ var handleResponse = (req, res, visitor) => {
 
   return (proxyResponse) => {
 
+    console.log(1);
     var body = [];
     var contentLength = parseInt(proxyResponse.headers['content-length']);
 
     proxyResponse.on('data', (chunk) => {
+      console.log(2);
       body.push(chunk);
       var currentLength = JSON.stringify(body).replace(/[\[\]\,\"]/g,'').length;
 
