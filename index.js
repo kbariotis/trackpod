@@ -62,6 +62,8 @@ app.get(`/${config.get('proxy.path')}/:podcast`, (req, res) => {
   var proxy = https.request(options, handleResponse(req, res, visitor));
 
   proxy.on('error', (e) => {
+    console.log(e);
+    console.log(e.stack);
     console.log(`problem with request: ${e.message}`);
   });
   req.pipe(proxy, {
