@@ -43,9 +43,7 @@ app.get(`/${config.get('proxy.path')}/:podcast`, (req, res) => {
         }
       });
 
-      awsResponse.pipe(res, {
-        end: true
-      });
+      awsResponse.pipe(res);
   });
 
   proxy.on('error', (e) => {
@@ -54,9 +52,7 @@ app.get(`/${config.get('proxy.path')}/:podcast`, (req, res) => {
     console.log(`problem with request: ${e.message}`);
   });
 
-  req.pipe(proxy, {
-    end: true
-  });
+  req.pipe(proxy);
 
 });
 
