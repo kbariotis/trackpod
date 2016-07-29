@@ -32,13 +32,13 @@ app.get(`/${config.get('proxy.path')}/:podcast`, (req, res) => {
 
       var body = [];
       var contentLength = parseInt(awsResponse.headers['content-length']);
+      var dataLength = 0;
 
       awsResponse.on('data', (chunk) => {
-        console.log(2);
-        body.push(chunk);
-        var currentLength = JSON.stringify(body).replace(/[\[\]\,\"]/g,'').length;
 
-        if (currentLength >= contentLength) {
+        dataLength += chunk.length;
+
+        if (dataLength >= contentLength) {
           visitor.event('Podcasts', 'Full Play', req.params.podcast).send();
         }
       });
